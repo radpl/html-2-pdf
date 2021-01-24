@@ -1,6 +1,7 @@
 import { jsPDF } from "jspdf";
 import domtoimage from "dom-to-image";
 import tohtml from "./dom-to-image";
+import FileSaver from "file-saver";
 
 function generate() {
   const element = document.getElementById('main');
@@ -9,14 +10,19 @@ function generate() {
 }
 
 function generateHTML(element) {
+  //const element = document.getElementById('main');
   tohtml.toSvg(element).then((result) => {
+    //console.log(result);
+    //const html = '<html><body>' + result + '</body></html>';
     const root = document.createElement('html');
     const body = document.createElement('body');
     body.appendChild(result);
     root.appendChild(body);
     const toSend = root.outerHTML;
+    //console.log(toSend);
     const json = JSON.stringify(toSend);
-
+    //console.log(root);
+    //console.log(json);
     fetch("http://localhost:3001/generatePDF", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -25,17 +31,11 @@ function generateHTML(element) {
     }).then((response) => {
       if (response.ok) {
         return response.blob();
-        //console.log('fetch response');
-        //console.log(response);
-        //console.log(response.arrayBuffer());
       }
-    }).then(blob => {
-      //const pdf = new Blob(blob, { type: 'application/pdf' })
-      const link = document.createElement('a')
-      link.href = window.URL.createObjectURL(blob)
-      link.download = `your-file-name.pdf`
-      link.click()
-    });
+    })
+      .then(blob => {
+        FileSaver.saveAs(blob, 'file.pdf');
+      });
   });
 }
 

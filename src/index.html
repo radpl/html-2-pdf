@@ -7,12 +7,97 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body>
   <h1>
     <%= htmlWebpackPlugin.options.title %>
   </h1>
+  <button id="toPDF">
+    ToPDF
+  </button>
 </body>
+<div id="main">
+  <div id="myTable">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Firm</th>
+          <th>Org</th>
+          <th>Lob</th>
+          <th>Sub Lob</th>
+          <th>Business Plans</th>
+          <th>Business Components</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td rowspan="11">XYZ</td>
+          <td rowspan="5">CST</td>
+          <td rowspan="3">CT</td>
+          <td>ADS</td>
+          <td>1</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>BTO</td>
+          <td>2</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>CSI</td>
+          <td>3</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td rowspan="2">VCT</td>
+          <td>ADS</td>
+          <td>4</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>BTO</td>
+          <td>5</td>
+          <td>15</td>
+        </tr>
+        <tr class="subTotatlRow">
+          <td colspan="3" class="sub-total-text">Sub Total</td>
+          <td>6</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td rowspan="4">CST</td>
+          <td rowspan="3">CT</td>
+          <td>ADS</td>
+          <td>7</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>BTO</td>
+          <td>8</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>CSI</td>
+          <td>9</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td rowspan="1">VCT</td>
+          <td>ADS</td>
+          <td>10</td>
+          <td>10</td>
+        </tr>
+        <tr class="subTotatlRow">
+          <td colspan="3" class="sub-total-text">Sub Total</td>
+          <td>11</td>
+          <td>15</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 </html>

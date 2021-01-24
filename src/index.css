@@ -1,0 +1,17 @@
+table{
+  width:100%;
+  border:1px solid lightskyblue;
+}
+  table th{
+    background:#888; 
+    color:#fff;}
+  
+    table th, table td{
+      text-align:center; 
+      border:1px solid lightblue; 
+      padding:5px 5px;
+    }
+  
+  .subTotatlRow .sub-total-text{
+    text-align:right;
+  }
